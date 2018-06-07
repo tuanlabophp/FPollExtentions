@@ -20,8 +20,6 @@
                 "http://poll.framgia.vn/link/Maymem"
             ],
             "js": [
-                // "js/externals/libs.js",
-                // "js/internals/background.js"
                 "js/app.js"
             ],
             "run_at": "document_end"
@@ -29,11 +27,5 @@
     ],
     "web_accessible_resources": [
         "js/internals/background.js"
-    ],
-    "background": {
-        "scripts": [
-            "js/externals/popup.js"
-        ],
-        "persistent": false
-    }
+    ]
 }
