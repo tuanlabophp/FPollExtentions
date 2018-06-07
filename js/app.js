@@ -38,7 +38,44 @@ if (window.location.pathname == urlPathNameMem) {
 
 function percent(mnglPoint, memPoint) {
     var percent =  parseFloat(mnglPoint/getLocal('sumMngl')).toFixed(2)*0.3 + parseFloat(memPoint/getLocal('sumMem')).toFixed(2)*0.7;
-    return percent*100 + '%';
+    return percent*100;
+}
+
+var rows = document.getElementsByClassName('td-poll-result');
+for(var i = 0; i < rows.length; i++) {
+    var point = percent(getLocal('mngl' + (i + 1)), getLocal('mem' +  + (i + 1)));
+    var name = rows[i].getElementsByTagName('p')[0].innerHTML;
+    result.push({name, point});
+}
+
+console.log(result);
+// console.log(result);
+
+// let data = [];
+// $(".none-tag-mobile tbody tr").each((key, value) => {
+//     let objName = $(value).find('td')[1];
+//     let name = $(objName).find('p').text();
+//     let objPoint = $(value).find('td')[2];
+//     let point = $(objPoint).find('span').text();
+
+//     data.push({name, point});
+
+// })
+
+// result = result.sort(function(a, b) {return b - a;});
+
+// var rows = document.getElementsByClassName('td-poll-result');
+for(var i = 0; i < rows.length; i++) {
+    for(var j = i+1; j <= i; j ++) {
+        var percentOfSpeaker = document.createElement('span');
+        percentOfSpeaker.innerHTML = '-_- VOTED: ' + result[j].point + '%' ;
+        if (rows[i].getElementsByTagName('p')[0].innerHTML == result[j].name) {
+            console.log(result[i].point);
+            rows[i].append(percentOfSpeaker);
+        }
+        // var name = rows[i].getElementsByTagName('p')[0].innerHTML;
+        // console.log(name);
+    }
 }
 
 console.log('longNB: ', percent(getLocal('mngl1'), getLocal('mem1')));
