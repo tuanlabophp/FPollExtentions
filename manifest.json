@@ -2,17 +2,12 @@
     "manifest_version": 2,
     "name": "Poll++",
     "description": "Finding winner by 'lucky'",
-    "version": "2.0",
+    "version": "1.0.3",
     "browser_action": {
         "default_icon": "logo.png",
         "default_popup": "html/popup.html"
     },
-    "permissions": [
-        "activeTab",
-        "http://*/*",
-        "https://*/*",
-        "tabs"
-    ],
+    "permissions":["storage"],
     "content_scripts": [
         {
             "matches": [
@@ -27,5 +22,11 @@
     ],
     "web_accessible_resources": [
         "js/internals/background.js"
-    ]
+    ],
+    "background": {
+        "scripts": [
+            "js/popup.js"
+        ],
+        "persistent": false
+    }
 }

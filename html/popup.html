@@ -4,10 +4,9 @@
 <head>
     <title>Log percent of speaker</title>
     <meta charset="utf-8" />
-    <script type="text/javascript" src="../js/app.js"></script>
     <style type="text/css">
         body {
-            width: 170px;
+            width: 340px;
             height: 100px;
         }
     </style>
@@ -18,19 +17,21 @@
         <h4>speakers.hasBo(){return Win;}</h4>
         <div id="select">
             <label>Month</label>
-            <input type="month" name="month" value="" />
-
-            <select>
-              <option value="1" selected>First Week</option>
+            <input type="month" name="month" id="popup_month" value="2018-05" />
+            <label>Month vote?</label>
+            <input type="checkbox" id="popup_checkbox" name="">
+            <label>Week</label>
+            <select id="popup_week">
+              <option value="1">First Week</option>
               <option value="2">Second Week</option>
               <option value="3">Third Week</option>
               <option value="4">Fourth Week</option>
               <option value="5">Fifth Week</option>
             </select>
-            <input type="button" id="submit" name="submit" value="OPEN">
+            <input type="button" id="popup_submit" name="submit" value="OPEN">
         </div>
         <ul id="listSpeaker"></ul>
     </div>
+<script type="text/javascript" src="../js/popup.js"></script>
 </body>
-
 </html>

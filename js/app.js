@@ -12,12 +12,24 @@ function percent(mnglPoint, memPoint) {
     return percent*100 + '%';
 }
 
+
 // Global variables
 var mngl = [];
 var mem = [];
 var result = [];
-const urlPathNameMngl = '/link/Maymngl';
-const urlPathNameMem = '/link/Maymem';
+// chrome.storage.local.get(function(data) {
+//   console.log(data);
+// }); 
+var a;
+var urlPathNameMngl = chrome.storage.local.get(function(s) {console.log( s.urlPathNameMngl)});
+chrome.storage.local.get(function(s) {a = s.urlPathNameMem});
+console.log(a);
+
+const fPollUrl = 'http://poll.framgia.vn';
+
+if (window.location.href == (fPollUrl + urlPathNameMngl)) {
+    window.open(fPollUrl + urlPathNameMngl);
+}
 
 var table = document.getElementsByClassName('table-hover')[0];
 var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
