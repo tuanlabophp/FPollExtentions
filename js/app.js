@@ -20,10 +20,24 @@ var result = [];
 // chrome.storage.local.get(function(data) {
 //   console.log(data);
 // }); 
-var a;
-var urlPathNameMngl = chrome.storage.local.get(function(s) {console.log( s.urlPathNameMngl)});
-chrome.storage.local.get(function(s) {a = s.urlPathNameMem});
-console.log(a);
+// var a;
+// chrome.storage.local.get(function(s) {a = s.urlPathNameMem});
+
+async function getChromeUrl() {
+    await chrome.storage.sync.get(function(s) {this.urlMem = s.urlPathNameMem});
+    console.log(this.urlMem);
+    return this.urlMem;
+}
+
+getChromeUrl().then(result => {
+  console.log(result);
+}).catch(error => {
+  console.log(error);
+})
+
+// function getChromeUrl(callback) {
+//     chrome.storage.local.get('urlPathNameMem', callback);
+// }
 
 const fPollUrl = 'http://poll.framgia.vn';
 

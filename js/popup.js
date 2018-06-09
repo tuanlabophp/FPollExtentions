@@ -18,13 +18,14 @@ document.getElementById('popup_submit').onclick = function getTime() {
     var date = new Date(popup_month);
 	urlPathNameMngl = '/link/' + monthNames[date.getMonth()] + popup_week + 'mngl';
 	urlPathNameMem = '/link/' + monthNames[date.getMonth()] + popup_week + 'mem';
-	chrome.storage.local.set({urlPathNameMngl});
-	chrome.storage.local.set({urlPathNameMem});
+	chrome.storage.sync.set({urlPathNameMngl});
+	chrome.storage.sync.set({urlPathNameMem});
 
 	// Open two tabs of this poll after click button in popup
-	window.open(fPollUrl + urlPathNameMem).focus();
-	if (window.location.href == fPollUrl + urlPathNameMem) {
-		console.log(1);
-		window.open(fPollUrl + urlPathNameMngl);
-	}
+	// window.open(fPollUrl + urlPathNameMem).focus();
+	// if (window.location.href == fPollUrl + urlPathNameMem) {
+	// 	console.log(1);
+	// 	window.open(fPollUrl + urlPathNameMngl);
+	// }
 }
+
